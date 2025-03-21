@@ -1,5 +1,11 @@
 import java.net.URI
 
+include(":ui-module-b")
+
+
+include(":ui-module-a")
+
+
 include(":ui-dashboard")
 
 

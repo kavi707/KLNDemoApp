@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.kavi.droid.kln.demo.module_a.ModuleAUI
+import com.kavi.droid.kln.demo.module_b.ModuleBUI
 
 @Composable
 fun DashboardTabUI(navController: NavHostController) {
@@ -60,7 +62,6 @@ fun DashboardTabUI(navController: NavHostController) {
     ) { innerPadding ->
         // Content displayed above the bottom bar
         TabContent(
-            navController = navController,
             selectedTabIndex = selectedTabIndex,
             modifier = Modifier
                 .padding(bottom = innerPadding.calculateBottomPadding())
@@ -70,12 +71,10 @@ fun DashboardTabUI(navController: NavHostController) {
 }
 
 @Composable
-fun TabContent(navController: NavHostController, selectedTabIndex: Int, modifier: Modifier = Modifier) {
+fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        //0 -> ColorPaletteTab(navController = navController, modifier = modifier)
-        0 -> Text("Module A")
-        //1 -> ThemeColorGenTab(navController = navController, modifier =  modifier)
-        1 -> Text("Module B")
+        0 -> ModuleAUI()
+        1 -> ModuleBUI()
     }
 }
 

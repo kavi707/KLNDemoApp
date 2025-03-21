@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kavi.droid.kln.demo.dashboard"
+    namespace = "com.kavi.droid.kln.demo.module_b"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {
@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
@@ -49,9 +50,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
-
-    implementation(project(":ui-module-a"))
-    implementation(project(":ui-module-b"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
