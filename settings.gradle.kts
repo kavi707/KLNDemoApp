@@ -1,5 +1,8 @@
 import java.net.URI
 
+include(":ui-dashboard")
+
+
 pluginManagement {
     resolutionStrategy {
         eachPlugin {
