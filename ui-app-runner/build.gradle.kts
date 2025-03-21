@@ -55,6 +55,8 @@ dependencies {
 
     implementation(libs.kv.color.palette)
 
+    implementation(project(":ui-dashboard"))
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
