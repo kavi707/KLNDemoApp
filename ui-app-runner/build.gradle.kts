@@ -57,8 +57,8 @@ dependencies {
 
     implementation(project(":lib-ui-parent"))
     implementation(project(":ui-dashboard"))
-    implementation(project(":ui-module-a"))
-    implementation(project(":ui-module-b"))
+    implementation(project(":ui-stat-dept"))
+    implementation(project(":ui-maths-dept"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

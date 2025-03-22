@@ -4,8 +4,8 @@ import android.app.Application
 import com.kavi.droid.color.palette.KvColorPalette
 import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.kln.demo.dashboard.DashboardContract
-import com.kavi.droid.kln.demo.module_a.ModuleAContract
-import com.kavi.droid.kln.demo.module_b.ModuleBContract
+import com.kavi.droid.kln.demo.module_a.StatDeptContract
+import com.kavi.droid.kln.demo.module_b.MathsDeptContract
 import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 
 class KLNDemoApp: Application() {
@@ -24,7 +24,7 @@ class KLNDemoApp: Application() {
         val uiModuleRegistry = UIModuleRegistry.getModuleRegistry()
 
         uiModuleRegistry.registerUIModule(name = "DASHBOARD", module = DashboardContract())
-        uiModuleRegistry.registerUIModule(name = "MODULE_A", module = ModuleAContract())
-        uiModuleRegistry.registerUIModule(name = "MODULE_B", module = ModuleBContract())
+        uiModuleRegistry.registerUIModule(name = "MODULE_A", module = StatDeptContract())
+        uiModuleRegistry.registerUIModule(name = "MODULE_B", module = MathsDeptContract())
     }
 }

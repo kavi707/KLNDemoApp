@@ -1,4 +1,4 @@
-package com.kavi.droid.kln.demo.module_a.ui
+package com.kavi.droid.kln.demo.module_b.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,11 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ModuleAUI() {
+fun MathDeptUI() {
     Scaffold { innerPadding ->
         Column (
             modifier = Modifier
@@ -27,12 +26,12 @@ fun ModuleAUI() {
             Row (
                 Modifier
                     .fillMaxWidth()
-                    .padding(top = 24.dp)
+                    .padding(top = 18.dp)
             ) {
                 Text(
                     modifier = Modifier
                         .padding(8.dp),
-                    text = "Module A UI",
+                    text = "Dept of Mathematics",
                     style = MaterialTheme.typography.titleLarge
                 )
             }
