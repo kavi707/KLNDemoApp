@@ -1,7 +1,7 @@
-package com.kavi.droid.kln.demo.module_b
+package com.kavi.droid.kln.demo.maths
 
 import androidx.compose.runtime.Composable
-import com.kavi.droid.kln.demo.module_b.ui.MathDeptUI
+import com.kavi.droid.kln.demo.maths.ui.MathDeptUI
 import com.kavi.droid.kln.demo.parent.UIModuleContract
 
 class MathsDeptContract: UIModuleContract {

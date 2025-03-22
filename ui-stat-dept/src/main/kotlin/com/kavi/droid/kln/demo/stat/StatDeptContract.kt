@@ -1,8 +1,8 @@
-package com.kavi.droid.kln.demo.module_a
+package com.kavi.droid.kln.demo.stat
 
 import androidx.compose.runtime.Composable
-import com.kavi.droid.kln.demo.module_a.ui.StatDeptUI
 import com.kavi.droid.kln.demo.parent.UIModuleContract
+import com.kavi.droid.kln.demo.stat.ui.StatDeptUI
 
 class StatDeptContract: UIModuleContract {
     @Composable

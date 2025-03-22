@@ -1,4 +1,4 @@
-package com.kavi.droid.kln.demo.module_a
+package com.kavi.droid.kln.demo.stat
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

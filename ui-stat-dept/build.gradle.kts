@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kavi.droid.kln.demo.module_a"
+    namespace = "com.kavi.droid.kln.demo.stat"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {

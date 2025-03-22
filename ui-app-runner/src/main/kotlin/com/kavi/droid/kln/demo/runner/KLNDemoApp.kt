@@ -4,8 +4,8 @@ import android.app.Application
 import com.kavi.droid.color.palette.KvColorPalette
 import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.kln.demo.dashboard.DashboardContract
-import com.kavi.droid.kln.demo.module_a.StatDeptContract
-import com.kavi.droid.kln.demo.module_b.MathsDeptContract
+import com.kavi.droid.kln.demo.stat.StatDeptContract
+import com.kavi.droid.kln.demo.maths.MathsDeptContract
 import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 
 class KLNDemoApp: Application() {
