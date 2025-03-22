@@ -50,8 +50,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
 
-    implementation(project(":ui-module-a"))
-    implementation(project(":ui-module-b"))
+    implementation(project(":lib-ui-parent"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

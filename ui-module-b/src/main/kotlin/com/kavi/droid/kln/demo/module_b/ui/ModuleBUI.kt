@@ -1,12 +1,12 @@
-package com.kavi.droid.kln.demo.module_a
+package com.kavi.droid.kln.demo.module_b.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun ModuleAUI() {
+fun ModuleBUI() {
     Column {
-        Text(text = "Module A UI")
+        Text(text = "Module B UI")
     }
 }

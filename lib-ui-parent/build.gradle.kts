@@ -1,21 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.kavi.droid.kln.demo.runner"
+    namespace = "com.kavi.droid.kln.demo.parent"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {
-        applicationId = "com.kavi.droid.kln.demo.runner"
         minSdk = libs.versions.minSdkVersion.get().toInt()
-        targetSdk = libs.versions.targetSdkVersion.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -41,6 +38,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
@@ -52,13 +50,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
-
-    implementation(libs.kv.color.palette)
-
-    implementation(project(":lib-ui-parent"))
-    implementation(project(":ui-dashboard"))
-    implementation(project(":ui-module-a"))
-    implementation(project(":ui-module-b"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

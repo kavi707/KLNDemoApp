@@ -1,33 +1,25 @@
-package com.kavi.droid.kln.demo.dashboard
+package com.kavi.droid.kln.demo.dashboard.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import com.kavi.droid.kln.demo.module_a.ModuleAUI
-import com.kavi.droid.kln.demo.module_b.ModuleBUI
+import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 
 @Composable
-fun DashboardTabUI(navController: NavHostController) {
+fun DashboardTabUI() {
     val tabItems = listOf(
         "Module A", "Module B"
     )
@@ -73,8 +65,8 @@ fun DashboardTabUI(navController: NavHostController) {
 @Composable
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        0 -> ModuleAUI()
-        1 -> ModuleBUI()
+        0 -> UIModuleRegistry.getModuleRegistry().getUIModule("MODULE_A")?.GetEntryUI()
+        1 -> UIModuleRegistry.getModuleRegistry().getUIModule("MODULE_B")?.GetEntryUI()
     }
 }
 

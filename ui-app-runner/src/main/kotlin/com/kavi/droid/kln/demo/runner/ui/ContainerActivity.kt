@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.kavi.droid.kln.demo.dashboard.DashboardTabUI
+import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 import com.kavi.droid.kln.demo.runner.theme.KLNDemoTheme
 
 class ContainerActivity: ComponentActivity() {
@@ -19,7 +19,8 @@ class ContainerActivity: ComponentActivity() {
         setContent {
             KLNDemoTheme {
                 navController = rememberNavController()
-                DashboardTabUI(navController = navController)
+
+                UIModuleRegistry.getModuleRegistry().getUIModule("DASHBOARD")?.GetEntryUI()
             }
         }
     }

@@ -1,13 +1,12 @@
 import java.net.URI
 
+rootProject.name = "KLNDemo"
+
+include(":lib-ui-parent")
 include(":ui-module-b")
-
-
 include(":ui-module-a")
-
-
 include(":ui-dashboard")
-
+include(":ui-app-runner")
 
 pluginManagement {
     resolutionStrategy {
@@ -44,7 +43,4 @@ dependencyResolutionManagement {
         maven { url = URI("https://jitpack.io") }
     }
 }
-
-rootProject.name = "KLNDemo"
-include(":ui-app-runner")
  
