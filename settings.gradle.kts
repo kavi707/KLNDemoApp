@@ -1,9 +1,9 @@
 import java.net.URI
 
-include(":ui-module-b")
+include(":ui-maths-dept")
 
 
-include(":ui-module-a")
+include(":ui-stat-dept")
 
 
 include(":ui-dashboard")

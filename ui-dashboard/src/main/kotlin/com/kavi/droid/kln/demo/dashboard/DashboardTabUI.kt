@@ -6,14 +6,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
@@ -23,8 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.kavi.droid.kln.demo.module_a.ModuleAUI
-import com.kavi.droid.kln.demo.module_b.ModuleBUI
+import com.kavi.droid.kln.demo.module_a.StatDeptUI
+import com.kavi.droid.kln.demo.module_b.MathDeptUI
 
 @Composable
 fun DashboardTabUI(navController: NavHostController) {
@@ -74,8 +72,8 @@ fun DashboardTabUI(navController: NavHostController) {
 @Composable
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        0 -> ModuleAUI()
-        1 -> ModuleBUI()
+        0 -> StatDeptUI()
+        1 -> MathDeptUI()
     }
 }
 

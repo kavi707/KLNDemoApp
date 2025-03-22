@@ -1,4 +1,4 @@
-package com.kavi.droid.kln.demo.module_b
+package com.kavi.droid.kln.demo.module_a
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ModuleBUI() {
+fun StatDeptUI() {
     Scaffold { innerPadding ->
         Column (
             modifier = Modifier
@@ -26,12 +26,12 @@ fun ModuleBUI() {
             Row (
                 Modifier
                     .fillMaxWidth()
-                    .padding(top = 24.dp)
+                    .padding(top = 18.dp)
             ) {
                 Text(
                     modifier = Modifier
                         .padding(8.dp),
-                    text = "Module B UI",
+                    text = "Dept of Statistics",
                     style = MaterialTheme.typography.titleLarge
                 )
             }

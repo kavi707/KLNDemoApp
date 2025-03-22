@@ -49,9 +49,8 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
-
-    implementation(project(":ui-module-a"))
-    implementation(project(":ui-module-b"))
+    implementation(project(":ui-stat-dept"))
+    implementation(project(":ui-maths-dept"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
