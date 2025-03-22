@@ -72,8 +72,8 @@ fun DashboardTabUI() {
 @Composable
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        0 -> UIModuleRegistry.getModuleRegistry().getUIModule("MODULE_A")?.GetEntryUI()
-        1 -> UIModuleRegistry.getModuleRegistry().getUIModule("MODULE_B")?.GetEntryUI()
+        0 -> UIModuleRegistry.getModuleRegistry().getUIModule("STAT_DEPT")?.GetEntryUI()
+        1 -> UIModuleRegistry.getModuleRegistry().getUIModule("MATHS_DEPT")?.GetEntryUI()
     }
 }
 

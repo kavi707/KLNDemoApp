@@ -24,7 +24,7 @@ class KLNDemoApp: Application() {
         val uiModuleRegistry = UIModuleRegistry.getModuleRegistry()
 
         uiModuleRegistry.registerUIModule(name = "DASHBOARD", module = DashboardContract())
-        uiModuleRegistry.registerUIModule(name = "MODULE_A", module = StatDeptContract())
-        uiModuleRegistry.registerUIModule(name = "MODULE_B", module = MathsDeptContract())
+        uiModuleRegistry.registerUIModule(name = "STAT_DEPT", module = StatDeptContract())
+        uiModuleRegistry.registerUIModule(name = "MATHS_DEPT", module = MathsDeptContract())
     }
 }
