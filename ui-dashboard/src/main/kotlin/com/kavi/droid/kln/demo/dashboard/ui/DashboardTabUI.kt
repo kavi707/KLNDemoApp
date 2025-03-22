@@ -21,7 +21,8 @@ import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 @Composable
 fun DashboardTabUI() {
     val tabItems = listOf(
-        "Module A", "Module B"
+        TabModel("Stat Dept", R.drawable.stat_icon),
+        TabModel("Maths Dept", R.drawable.maths_icon)
     )
     var selectedTabIndex by remember { mutableIntStateOf(0) }
 
@@ -36,16 +37,16 @@ fun DashboardTabUI() {
                         colors = navigationBarColors(),
                         selected = selectedTabIndex == index,
                         onClick = { selectedTabIndex = index },
-                        label = { Text(tabItem) },
+                        label = { Text(tabItem.name) },
                         icon = {
-                            /*Icon(
+                            Icon(
                                 painterResource(id = tabItem.icon),
                                 contentDescription = "",
                                 modifier = Modifier
                                     .width(40.dp)
                                     .height(40.dp)
                                     .padding(8.dp),
-                            )*/
+                            )
                         }
                     )
                 }
