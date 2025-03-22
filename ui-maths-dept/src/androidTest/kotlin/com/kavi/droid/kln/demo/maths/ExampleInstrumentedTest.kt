@@ -1,4 +1,4 @@
-package com.kavi.droid.kln.demo.module_b
+package com.kavi.droid.kln.demo.maths
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kavi.droid.kln.demo.module_b"
+    namespace = "com.kavi.droid.kln.demo.maths"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {

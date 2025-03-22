@@ -21,8 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.kavi.droid.kln.demo.module_a.StatDeptUI
-import com.kavi.droid.kln.demo.module_b.MathDeptUI
+import com.kavi.droid.kln.demo.stat.StatDeptUI
+import com.kavi.droid.kln.demo.maths.MathDeptUI
 
 @Composable
 fun DashboardTabUI(navController: NavHostController) {

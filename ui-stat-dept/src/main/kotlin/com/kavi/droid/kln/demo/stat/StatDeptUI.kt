@@ -1,4 +1,4 @@
-package com.kavi.droid.kln.demo.module_b
+package com.kavi.droid.kln.demo.stat
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MathDeptUI() {
+fun StatDeptUI() {
     Scaffold { innerPadding ->
         Column (
             modifier = Modifier
@@ -31,7 +31,7 @@ fun MathDeptUI() {
                 Text(
                     modifier = Modifier
                         .padding(8.dp),
-                    text = "Dept of Mathematics",
+                    text = "Dept of Statistics",
                     style = MaterialTheme.typography.titleLarge
                 )
             }
