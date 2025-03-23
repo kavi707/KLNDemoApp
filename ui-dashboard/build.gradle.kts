@@ -52,6 +52,8 @@ dependencies {
 
     implementation(project(":lib-ui-parent"))
 
+    debugImplementation(libs.androidx.ui.tooling)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
