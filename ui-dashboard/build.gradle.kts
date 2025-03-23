@@ -49,8 +49,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
+
     implementation(project(":ui-stat-dept"))
     implementation(project(":ui-maths-dept"))
+
+    debugImplementation(libs.androidx.ui.tooling)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
