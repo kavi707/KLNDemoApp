@@ -24,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.kavi.droid.kln.demo.maths.R
 
 @Composable
 fun MathDeptUI() {
