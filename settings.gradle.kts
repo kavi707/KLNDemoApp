@@ -18,6 +18,12 @@ pluginManagement {
                 in listOf(
                     "kotlin-serialization"
                 ) -> useModule("org.jetbrains.kotlin:kotlin-serialization:${requested.version}")
+                in listOf(
+                    "org.jetbrains.kotlin.android"
+                ) -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+                in listOf(
+                    "com.google.dagger.hilt.android"
+                ) -> useModule("com.google.dagger:hilt-android-gradle-plugin:${requested.version}")
                 else -> return@eachPlugin
             }
         }

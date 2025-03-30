@@ -7,7 +7,9 @@ import com.kavi.droid.kln.demo.dashboard.DashboardContract
 import com.kavi.droid.kln.demo.stat.StatDeptContract
 import com.kavi.droid.kln.demo.maths.MathsDeptContract
 import com.kavi.droid.kln.demo.parent.UIModuleRegistry
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class KLNDemoApp: Application() {
 
     override fun onCreate() {
