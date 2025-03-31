@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.kavi.droid.color.palette.extension.quaternary
 import com.kavi.droid.kln.demo.maths.R
 
 @Composable
@@ -100,7 +101,7 @@ fun MathDeptUI() {
                     text = if (isExpanded) stringResource(R.string.read_less) else stringResource(R.string.read_more),
                     style = TextStyle(
                         fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                        color = MaterialTheme.colorScheme.primary
+                        color = MaterialTheme.colorScheme.quaternary
                     )
                 )
             }
