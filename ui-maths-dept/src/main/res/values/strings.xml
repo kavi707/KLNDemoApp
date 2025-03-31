@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="read_more">Read More</string>
+    <string name="read_less">Read Less</string>
     <string name="maths_dpt_desc">
         The ‘Department of Mathematics’ has been functioning almost since the inception of the University way back in 1959,
         teaching Mathematics to the students in the Faculty of Arts. With the establishment of the Faculty of Science in 1967 the Department of Mathematics was formally
@@ -8,4 +10,6 @@
         Since 2005 the Department of Mathematics in collaboration with the Department of Physics has introduced a Special Degree Programme in Mathematical Physics, which happens to be the only such programme offered by a University in Sri Lanka.
         The Department of Mathematics also provides opportunities for students to carry out research in Pure Mathematics, Applied Mathematics, Mathematical Statistics and Mathematical Physics leading to M. Phil. and Ph. D. degrees.
     </string>
+    <string name="maths_dpt_desc_short">The ‘Department of Mathematics’ has been functioning almost since the inception of the University way back in 1959,
+        teaching Mathematics to the students in the Faculty of Arts. With the establishment of the Faculty of Science in 1967 the Department of Mathematics was formally…</string>
 </resources>
