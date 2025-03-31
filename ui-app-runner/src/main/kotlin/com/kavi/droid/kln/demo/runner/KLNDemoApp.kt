@@ -16,6 +16,9 @@ class KLNDemoApp: Application() {
     @Inject
     lateinit var uiModuleRegistry: UIModuleRegistry
 
+    @Inject
+    lateinit var dashboardContract: DashboardContract
+
     override fun onCreate() {
         super.onCreate()
 
@@ -27,9 +30,7 @@ class KLNDemoApp: Application() {
     }
 
     private fun uiModuleConfig() {
-        //val uiModuleRegistry = UIModuleRegistry.getModuleRegistry()
-
-        uiModuleRegistry.registerUIModule(name = "DASHBOARD", module = DashboardContract())
+        uiModuleRegistry.registerUIModule(name = "DASHBOARD", module = dashboardContract)
         uiModuleRegistry.registerUIModule(name = "STAT_DEPT", module = StatDeptContract())
         uiModuleRegistry.registerUIModule(name = "MATHS_DEPT", module = MathsDeptContract())
     }
