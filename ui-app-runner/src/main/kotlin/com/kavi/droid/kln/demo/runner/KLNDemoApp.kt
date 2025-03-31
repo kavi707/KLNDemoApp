@@ -8,9 +8,13 @@ import com.kavi.droid.kln.demo.stat.StatDeptContract
 import com.kavi.droid.kln.demo.maths.MathsDeptContract
 import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
 class KLNDemoApp: Application() {
+
+    @Inject
+    lateinit var uiModuleRegistry: UIModuleRegistry
 
     override fun onCreate() {
         super.onCreate()
@@ -23,7 +27,7 @@ class KLNDemoApp: Application() {
     }
 
     private fun uiModuleConfig() {
-        val uiModuleRegistry = UIModuleRegistry.getModuleRegistry()
+        //val uiModuleRegistry = UIModuleRegistry.getModuleRegistry()
 
         uiModuleRegistry.registerUIModule(name = "DASHBOARD", module = DashboardContract())
         uiModuleRegistry.registerUIModule(name = "STAT_DEPT", module = StatDeptContract())

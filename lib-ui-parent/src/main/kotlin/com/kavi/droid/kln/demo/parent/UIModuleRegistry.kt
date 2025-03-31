@@ -1,6 +1,10 @@
 package com.kavi.droid.kln.demo.parent
 
-class UIModuleRegistry {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class UIModuleRegistry @Inject constructor() {
 
     private val moduleRegistry = mutableMapOf<String, UIModuleContract>()
 
