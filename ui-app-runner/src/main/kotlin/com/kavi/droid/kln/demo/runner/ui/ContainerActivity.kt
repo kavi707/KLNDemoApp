@@ -8,8 +8,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.kavi.droid.kln.demo.parent.UIModuleRegistry
 import com.kavi.droid.kln.demo.runner.theme.KLNDemoTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class ContainerActivity: ComponentActivity() {
+
+    @Inject
+    lateinit var uiModuleRegistry: UIModuleRegistry
 
     private lateinit var navController: NavHostController
 
@@ -20,7 +26,7 @@ class ContainerActivity: ComponentActivity() {
             KLNDemoTheme {
                 navController = rememberNavController()
 
-                UIModuleRegistry.getModuleRegistry().getUIModule("DASHBOARD")?.GetEntryUI()
+                uiModuleRegistry.getUIModule("DASHBOARD")?.GetEntryUI()
             }
         }
     }
