@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +33,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kavi.droid.color.palette.extension.quaternary
 import com.kavi.droid.kln.demo.maths.R
 
@@ -105,6 +109,100 @@ fun MathDeptUI() {
                     )
                 )
             }
+
+            MenuBoard()
         }
     }
+}
+
+@Composable
+fun MenuBoard() {
+    Column {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(top = 2.dp)
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(8.dp),
+                text = "Menu Board",
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            )
+        }
+
+        Row (
+            Modifier
+                .fillMaxWidth()
+                .padding(top = 4.dp)
+        ) {
+            Column (
+                Modifier
+                    .weight(1f)
+                    .padding(top = 4.dp)
+            ) {
+                OutlinedButton(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = {
+
+                    }
+                ) {
+                    Text(text = "Staff")
+                }
+
+                OutlinedButton(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = {
+
+                    }
+                ) {
+                    Text(text = "About Us")
+                }
+            }
+            Column (
+                Modifier
+                    .weight(1f)
+                    .padding(top = 4.dp)
+            ) {
+                OutlinedButton(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = {
+
+                    }
+                ) {
+                    Text(text = "News")
+                }
+
+                OutlinedButton(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = {
+
+                    }
+                ) {
+                    Text(text = "Contact Us")
+                }
+            }
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MathDeptUIPreview() {
+    MathDeptUI()
 }
