@@ -3,6 +3,7 @@ import java.net.URI
 rootProject.name = "KLNDemo"
 
 include(":lib-ui-parent")
+include(":ui-staff")
 include(":ui-maths-dept")
 include(":ui-stat-dept")
 include(":ui-dashboard")
