@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.google.android.hilt)
     kapt(libs.google.android.hilt.compiler)
 
+    implementation(libs.google.gson)
     implementation(libs.kv.color.palette)
 
     implementation(project(":lib-ui-parent"))

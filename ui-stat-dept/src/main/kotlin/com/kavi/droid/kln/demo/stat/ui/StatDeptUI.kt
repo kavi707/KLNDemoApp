@@ -4,10 +4,7 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
-import androidx.compose.animation.with
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -15,20 +12,20 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -54,9 +51,15 @@ import javax.inject.Inject
 
 class StatDeptUI @Inject constructor() {
 
-    @OptIn(ExperimentalAnimationApi::class)
+    @Inject
+    lateinit var bottomModelUI: MenuItemModelUI
+
+    @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterial3Api::class)
     @Composable
     internal fun StatDeptUI() {
+
+        val sheetState = rememberModalBottomSheetState()
+        val showSheet = remember { mutableStateOf(false) }
 
         var isExpanded by remember { mutableStateOf(false) }
 
@@ -138,10 +141,16 @@ class StatDeptUI @Inject constructor() {
                         .padding(8.dp)
                         .fillMaxWidth(),
                     shape = RoundedCornerShape(8.dp),
-                    onClick = {}
+                    onClick = {
+                        showSheet.value = true
+                    }
                 ) {
                     Text(text = "Staff")
                 }
+            }
+
+            if (showSheet.value) {
+                bottomModelUI.MenuItemSheet(sheetState, showSheet)
             }
         }
     }
