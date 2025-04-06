@@ -50,171 +50,175 @@ import androidx.compose.ui.unit.sp
 import com.kavi.droid.color.palette.extension.quaternary
 import com.kavi.droid.color.palette.extension.shadow
 import com.kavi.droid.kln.demo.stat.R
+import javax.inject.Inject
 
-@OptIn(ExperimentalAnimationApi::class)
-@Composable
-fun StatDeptUI() {
+class StatDeptUI @Inject constructor() {
 
-    var isExpanded by remember { mutableStateOf(false) }
+    @OptIn(ExperimentalAnimationApi::class)
+    @Composable
+    internal fun StatDeptUI() {
 
-    Scaffold { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(top = 18.dp)
-            ) {
-                Text(
-                    modifier = Modifier
-                        .padding(8.dp),
-                    text = "Dept of Statistics",
-                    style = MaterialTheme.typography.titleLarge
-                )
-            }
+        var isExpanded by remember { mutableStateOf(false) }
 
-            Box(
+        Scaffold { innerPadding ->
+            Column(
                 modifier = Modifier
-                    .width(360.dp) // Adjust width as needed
-                    .height(240.dp) // Adjust height as needed
-                    .shadow(8.dp, shape = RoundedCornerShape(16.dp))
-                    .clip(RoundedCornerShape(16.dp))
-                    .background(Color.White) // Optional to enhance shadow visibility
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.stat_image),
-                    contentDescription = "",
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
-
-            Column {
-                AnimatedContent(
-                    targetState = isExpanded,
-                    transitionSpec = {
-                        (fadeIn()).togetherWith(fadeOut())
-                    }
-                ) { isExpanded ->
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = 18.dp)
+                ) {
                     Text(
                         modifier = Modifier
-                            .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 4.dp),
-                        text = if (isExpanded) stringResource(R.string.stat_dpt_desc) else stringResource(
-                            R.string.stat_dpt_desc_short
+                            .padding(8.dp),
+                        text = "Dept of Statistics",
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                }
+
+                Box(
+                    modifier = Modifier
+                        .width(360.dp) // Adjust width as needed
+                        .height(240.dp) // Adjust height as needed
+                        .shadow(8.dp, shape = RoundedCornerShape(16.dp))
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.White) // Optional to enhance shadow visibility
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.stat_image),
+                        contentDescription = "",
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+
+                Column {
+                    AnimatedContent(
+                        targetState = isExpanded,
+                        transitionSpec = {
+                            (fadeIn()).togetherWith(fadeOut())
+                        }
+                    ) { isExpanded ->
+                        Text(
+                            modifier = Modifier
+                                .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 4.dp),
+                            text = if (isExpanded) stringResource(R.string.stat_dpt_desc) else stringResource(
+                                R.string.stat_dpt_desc_short
+                            ),
+                            style = TextStyle(
+                                fontSize = MaterialTheme.typography.bodySmall.fontSize
+                            )
+                        )
+                    }
+
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 12.dp, end = 12.dp, top = 4.dp)
+                            .clickable { isExpanded = !isExpanded },
+                        text = if (isExpanded) stringResource(R.string.read_less) else stringResource(
+                            R.string.read_more
                         ),
+                        textAlign = TextAlign.End,
                         style = TextStyle(
-                            fontSize = MaterialTheme.typography.bodySmall.fontSize
+                            fontSize = MaterialTheme.typography.bodySmall.fontSize,
+                            color = MaterialTheme.colorScheme.quaternary
                         )
                     )
                 }
 
+                NoticeBoard()
+
+                Button(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(8.dp),
+                    onClick = {}
+                ) {
+                    Text(text = "Staff")
+                }
+            }
+        }
+    }
+
+    @Composable
+    private fun NoticeBoard() {
+        Column {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 2.dp)
+            ) {
                 Text(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 12.dp, end = 12.dp, top = 4.dp)
-                        .clickable { isExpanded = !isExpanded },
-                    text = if (isExpanded) stringResource(R.string.read_less) else stringResource(
-                        R.string.read_more
-                    ),
-                    textAlign = TextAlign.End,
+                        .padding(8.dp),
+                    text = "Notice Board",
                     style = TextStyle(
-                        fontSize = MaterialTheme.typography.bodySmall.fontSize,
-                        color = MaterialTheme.colorScheme.quaternary
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold
                     )
                 )
             }
 
-            NoticeBoard()
-
-            Button(
+            Column (
                 modifier = Modifier
-                    .padding(8.dp)
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(8.dp),
-                onClick = {}
+                    .height(205.dp)
+                    .verticalScroll(rememberScrollState())
             ) {
-                Text(text = "Staff")
+                NoticeItem(
+                    heading = "Calling Applications for MSc. in Statistics & Masters of Statistics - 2025 Intake",
+                    content = "Deadline for applications: 15th of  February 2025"
+                )
+
+                NoticeItem(
+                    heading = "Calling Applications for MSc. in Computer Science - 2024 Intake",
+                    content = "Deadline for applications: 15th of January 2025"
+                )
+
+                NoticeItem(
+                    heading = "Calling Applications for BSc External Degree - 2024 Intake",
+                    content = "Deadline for applications: 15th of December 2024"
+                )
             }
         }
     }
-}
 
-@Composable
-fun NoticeBoard() {
-    Column {
+    @Composable
+    private fun NoticeItem(heading: String, content: String) {
         Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(top = 2.dp)
-        ) {
-            Text(
-                modifier = Modifier
-                    .padding(8.dp),
-                text = "Notice Board",
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            )
-        }
-
-        Column (
             modifier = Modifier
-                .height(205.dp)
-                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+                .padding(8.dp)
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
+                .shadow(6.dp, shape = RoundedCornerShape(12.dp), spotColor = MaterialTheme.colorScheme.shadow)
+                .clip(RoundedCornerShape(12.dp))
+                .background(MaterialTheme.colorScheme.surface)
         ) {
-            NoticeItem(
-                heading = "Calling Applications for MSc. in Statistics & Masters of Statistics - 2025 Intake",
-                content = "Deadline for applications: 15th of  February 2025"
-            )
-
-            NoticeItem(
-                heading = "Calling Applications for MSc. in Computer Science - 2024 Intake",
-                content = "Deadline for applications: 15th of January 2025"
-            )
-
-            NoticeItem(
-                heading = "Calling Applications for BSc External Degree - 2024 Intake",
-                content = "Deadline for applications: 15th of December 2024"
-            )
-        }
-    }
-}
-
-@Composable
-fun NoticeItem(heading: String, content: String) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
-            .shadow(6.dp, shape = RoundedCornerShape(12.dp), spotColor = MaterialTheme.colorScheme.shadow)
-            .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.surface)
-    ) {
-        Column {
-            Text(
-                modifier = Modifier
-                    .padding(top = 12.dp, start = 12.dp, end = 12.dp),
-                text = heading,
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+            Column {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 12.dp, start = 12.dp, end = 12.dp),
+                    text = heading,
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 )
-            )
-            Text(
-                modifier = Modifier
-                    .padding(bottom = 12.dp, top = 8.dp, start = 12.dp, end = 12.dp),
-                text = content,
-                style = TextStyle(
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold
+                Text(
+                    modifier = Modifier
+                        .padding(bottom = 12.dp, top = 8.dp, start = 12.dp, end = 12.dp),
+                    text = content,
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 )
-            )
+            }
         }
     }
 }
@@ -222,5 +226,5 @@ fun NoticeItem(heading: String, content: String) {
 @Preview
 @Composable
 fun StatDeptUIPreview() {
-    StatDeptUI()
+    StatDeptUI().StatDeptUI()
 }

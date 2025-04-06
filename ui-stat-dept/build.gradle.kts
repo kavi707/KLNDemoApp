@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    kotlin("kapt")
+    alias(libs.plugins.google.android.hilt)
 }
 
 android {
@@ -50,6 +52,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.google.android.hilt)
+    kapt(libs.google.android.hilt.compiler)
 
     implementation(libs.kv.color.palette)
 

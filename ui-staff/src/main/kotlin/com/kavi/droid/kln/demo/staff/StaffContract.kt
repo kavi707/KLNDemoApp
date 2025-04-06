@@ -5,17 +5,21 @@ import androidx.navigation.compose.rememberNavController
 import com.google.gson.Gson
 import com.kavi.droid.kln.demo.parent.UIModuleContract
 import com.kavi.droid.kln.demo.parent.model.StaffData
-import com.kavi.droid.kln.demo.staff.navigation.StaffNavGraph
+import com.kavi.droid.kln.demo.staff.navigation.StaffNavigation
+import javax.inject.Inject
 
-class StaffContract: UIModuleContract {
+class StaffContract @Inject constructor(): UIModuleContract {
+
+    @Inject
+    lateinit var staffNavigation: StaffNavigation
 
     @Composable
     override fun GetEntryUIWithData(data: String?) {
         data?.let {
             val staffData = Gson().fromJson(it, StaffData::class.java)
-            StaffNavGraph(navController = rememberNavController(), staffData = staffData)
+            staffNavigation.StaffNavGraph(navController = rememberNavController(), staffData = staffData)
         }?: run {
-            StaffNavGraph(navController = rememberNavController(), startDestination = "empty_staff", staffData = null)
+            staffNavigation.StaffNavGraph(navController = rememberNavController(), startDestination = "empty_staff", staffData = null)
         }
     }
 }

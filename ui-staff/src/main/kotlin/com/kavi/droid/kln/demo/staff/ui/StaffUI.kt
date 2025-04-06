@@ -31,82 +31,91 @@ import coil.compose.AsyncImage
 import com.kavi.droid.color.palette.extension.shadow
 import com.kavi.droid.kln.demo.parent.model.StaffData
 import com.kavi.droid.kln.demo.staff.R
+import javax.inject.Inject
 
-@Composable
-fun StaffListUI(staffData: StaffData?) {
-    Column (
-        modifier = Modifier
-            .height(600.dp)
-            .padding(12.dp)
-            .verticalScroll(rememberScrollState())
-    ) {
-        staffData?.let {
-            it.staffList.forEach { lecturer ->
-                LecturerItem(
-                    imageUrl = lecturer.imageUrl,
-                    name = lecturer.name,
-                    description = lecturer.description
-                )
+class StaffUI @Inject constructor() {
+
+    @Composable
+    internal fun StaffListUI(staffData: StaffData?) {
+        Column (
+            modifier = Modifier
+                .height(600.dp)
+                .padding(12.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            staffData?.let {
+                it.staffList.forEach { lecturer ->
+                    LecturerItem(
+                        imageUrl = lecturer.imageUrl,
+                        name = lecturer.name,
+                        description = lecturer.description
+                    )
+                }
+            }?: run {
+                Text(text = "No Data Found")
             }
-        }?: run {
-            Text(text = "No Data Found")
         }
     }
-}
 
-@Composable
-fun LecturerItem(
-    imageUrl: String,
-    name: String,
-    description: String
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
-            .shadow(6.dp, shape = RoundedCornerShape(12.dp), spotColor = MaterialTheme.colorScheme.shadow)
-            .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.surface)
+    @Composable
+    internal fun NoStaffDataUI() {
+        Text(text = "No Staff Data Found")
+    }
+
+    @Composable
+    private fun LecturerItem(
+        imageUrl: String,
+        name: String,
+        description: String
     ) {
-        Box (
+        Row(
             modifier = Modifier
-                .height(80.dp)
-                .width(80.dp)
-                .padding(12.dp)
+                .fillMaxWidth()
+                .padding(8.dp)
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
+                .shadow(6.dp, shape = RoundedCornerShape(12.dp), spotColor = MaterialTheme.colorScheme.shadow)
+                .clip(RoundedCornerShape(12.dp))
+                .background(MaterialTheme.colorScheme.surface)
         ) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(imageUrl)
-                    .crossfade(true)
-                    .build(),
-                contentDescription = "Staff Image",
-                placeholder = painterResource(R.drawable.profile_image),
+            Box (
                 modifier = Modifier
                     .height(80.dp)
                     .width(80.dp)
-                    .clip(CircleShape)
-            )
-        }
-        Column {
-            Text(
-                modifier = Modifier
-                    .padding(top = 12.dp, end = 12.dp),
-                text = name,
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                    .padding(12.dp)
+            ) {
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(imageUrl)
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = "Staff Image",
+                    placeholder = painterResource(R.drawable.profile_image),
+                    modifier = Modifier
+                        .height(80.dp)
+                        .width(80.dp)
+                        .clip(CircleShape)
                 )
-            )
-            Text(
-                modifier = Modifier
-                    .padding(bottom = 12.dp, top = 8.dp, end = 12.dp),
-                text = description,
-                style = TextStyle(
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold
+            }
+            Column {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 12.dp, end = 12.dp),
+                    text = name,
+                    style = TextStyle(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 )
-            )
+                Text(
+                    modifier = Modifier
+                        .padding(bottom = 12.dp, top = 8.dp, end = 12.dp),
+                    text = description,
+                    style = TextStyle(
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+            }
         }
     }
 }
@@ -114,9 +123,9 @@ fun LecturerItem(
 @Preview(showBackground = true)
 @Composable
 fun MathDeptUIPreview() {
-    LecturerItem(
+    /*LecturerItem(
         imageUrl = "https://science.kln.ac.lk/depts/maths/images/Staff/Academic/10.jpg",
         name = "Dr. (Mrs.) L. P. N. D. Premarathna",
         description = "Head of the department and Senior Lecturer (Grade I) Ph.D (Massey, NZ), M.Sc.(Moratuwa), B.Sc.(Kelaniya)"
-    )
+    )*/
 }
