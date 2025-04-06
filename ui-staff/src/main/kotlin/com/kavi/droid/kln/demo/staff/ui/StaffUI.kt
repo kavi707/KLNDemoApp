@@ -45,6 +45,23 @@ class StaffUI @Inject constructor() {
                 .padding(12.dp)
                 .verticalScroll(rememberScrollState())
         ) {
+
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp, bottom = 8.dp)
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(8.dp),
+                    text = "Academic Staff - ${staffData?.deptName}",
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+            }
+
             staffData?.let {
                 it.staffList.forEach { lecturer ->
                     LecturerItem(
