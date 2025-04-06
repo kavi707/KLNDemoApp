@@ -5,8 +5,9 @@ import com.kavi.droid.kln.demo.parent.UIModuleContract
 import com.kavi.droid.kln.demo.stat.ui.StatDeptUI
 
 class StatDeptContract: UIModuleContract {
+
     @Composable
-    override fun GetEntryUI() {
+    override fun GetEntryUIWithData(data: String?) {
         StatDeptUI()
     }
 }

@@ -77,8 +77,8 @@ class DashboardUI @Inject constructor() {
     @Composable
     private fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
         when (selectedTabIndex) {
-            0 -> uiModuleRegistry.getUIModule("STAT_DEPT")?.GetEntryUI()
-            1 -> uiModuleRegistry.getUIModule("MATHS_DEPT")?.GetEntryUI()
+            0 -> uiModuleRegistry.getUIModule("STAT_DEPT")?.GetEntryUIWithData(data = null)
+            1 -> uiModuleRegistry.getUIModule("MATHS_DEPT")?.GetEntryUIWithData(data = null)
         }
     }
 

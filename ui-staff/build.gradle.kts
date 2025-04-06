@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
 
+    implementation(libs.google.gson)
+    implementation(libs.coil.compose)
     implementation(libs.kv.color.palette)
 
     implementation(project(":lib-ui-parent"))

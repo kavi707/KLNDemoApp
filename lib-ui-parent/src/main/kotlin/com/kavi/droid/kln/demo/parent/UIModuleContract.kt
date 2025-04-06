@@ -4,5 +4,5 @@ import androidx.compose.runtime.Composable
 
 interface UIModuleContract {
     @Composable
-    fun GetEntryUI()
+    fun GetEntryUIWithData(data: String?)
 }

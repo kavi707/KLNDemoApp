@@ -26,7 +26,7 @@ class ContainerActivity: ComponentActivity() {
             KLNDemoTheme {
                 navController = rememberNavController()
 
-                uiModuleRegistry.getUIModule("DASHBOARD")?.GetEntryUI()
+                uiModuleRegistry.getUIModule("DASHBOARD")?.GetEntryUIWithData(data = null)
             }
         }
     }

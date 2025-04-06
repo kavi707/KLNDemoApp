@@ -64,6 +64,7 @@ dependencies {
     implementation(project(":ui-dashboard"))
     implementation(project(":ui-stat-dept"))
     implementation(project(":ui-maths-dept"))
+    implementation(project(":ui-staff"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

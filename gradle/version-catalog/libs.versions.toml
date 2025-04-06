@@ -20,6 +20,8 @@ kvColorPalette = "2.1.1"
 kvColorPicker = "2.1.0"
 appcompat = "1.7.0"
 material = "1.12.0"
+coilComposeVersion = "2.4.0"
+gsonVersion = "2.8.8"
 
 kotlinxSerializationVersion = "1.4.0"
 kotlinxCoroutinesVersion = "1.7.3"
@@ -51,6 +53,9 @@ material = { group = "com.google.android.material", name = "material", version.r
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationVersion" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesVersion" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesVersion" }
+
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilComposeVersion" }
+google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
 
 kv-color-palette = { group = "com.github.KvColorPalette", name = "KvColorPalette-Android", version.ref = "kvColorPalette" }
 kv-color-picker = { group = "com.github.KvColorPalette", name = "KvColorPicker-Android", version.ref = "kvColorPicker" }

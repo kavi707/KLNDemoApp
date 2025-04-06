@@ -11,7 +11,7 @@ class DashboardContract @Inject constructor() : UIModuleContract {
     lateinit var dashboardUI: DashboardUI
 
     @Composable
-    override fun GetEntryUI() {
+    override fun GetEntryUIWithData(data: String?) {
         dashboardUI.DashboardTabUI()
     }
 }
