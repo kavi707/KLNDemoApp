@@ -1,7 +1,9 @@
 package com.kavi.droid.kln.demo.staff.ui
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,8 +31,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.request.ImageRequest
 import coil.compose.AsyncImage
+import com.google.gson.Gson
 import com.kavi.droid.color.palette.extension.shadow
 import com.kavi.droid.kln.demo.parent.model.StaffData
 import com.kavi.droid.kln.demo.staff.R
@@ -38,7 +43,7 @@ import javax.inject.Inject
 class StaffUI @Inject constructor() {
 
     @Composable
-    internal fun StaffListUI(staffData: StaffData?) {
+    internal fun StaffListUI(navController: NavHostController, staffData: StaffData?) {
         Column (
             modifier = Modifier
                 .fillMaxSize()
@@ -65,6 +70,11 @@ class StaffUI @Inject constructor() {
             staffData?.let {
                 it.staffList.forEach { lecturer ->
                     LecturerItem(
+                        modifier = Modifier
+                            .clickable {
+                                val encodedLecturer = Uri.encode(Gson().toJson(lecturer))
+                                navController.navigate("staff_person/$encodedLecturer")
+                            },
                         imageUrl = lecturer.imageUrl,
                         name = lecturer.name,
                         description = lecturer.description
@@ -83,12 +93,13 @@ class StaffUI @Inject constructor() {
 
     @Composable
     private fun LecturerItem(
+        modifier: Modifier = Modifier,
         imageUrl: String,
         name: String,
         description: String
     ) {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(8.dp)
                 .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
