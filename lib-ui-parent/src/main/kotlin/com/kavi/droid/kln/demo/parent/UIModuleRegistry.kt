@@ -3,6 +3,9 @@ package com.kavi.droid.kln.demo.parent
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * This is a common module registry
+ */
 @Singleton
 class UIModuleRegistry @Inject constructor() {
 
